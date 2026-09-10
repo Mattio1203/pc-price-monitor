@@ -86,10 +86,17 @@ def send_ntfy(title: str, message: str, url: str = None):
     if not NTFY_TOPIC:
         print("  (NTFY_TOPIC non impostato: notifica saltata)")
         return
-    headers = {
-        "Title": title.encode("utf-8"),
-        "Priority": "default",
-        "Tags": "moneybag",
+    HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    ),
+    "Accept-Language": "it-IT,it;q=0.9",
+    "cookie": "i18n-prefs=EUR; lc-acgit=it_IT; sp-cdn=L5Z9:IT",
+    "Accept": (
+        "text/html,application/xhtml+xml,application/xml;q=0.9,"
+        "image/avif,image/webp,*/*;q=0.8"
+    ),
     }
     if url:
         headers["Actions"] = f"view, Apri su Amazon, {url}, clear=true"
