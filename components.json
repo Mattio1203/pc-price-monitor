@@ -1,12 +1,47 @@
 {
   "build_name": "Build PC Gaming 2026",
   "components": [
-    {"id": "cpu", "category": "CPU", "name": "AMD Ryzen 5 5600 (6 Cores/12 Threads)", "url": "INSERISCI_LINK_AMAZON_QUI", "current_price": 141.61},
-    {"id": "gpu", "category": "GPU", "name": "MSI NVIDIA GeForce RTX 5060 8G Gaming OC", "url": "INSERISCI_LINK_AMAZON_QUI", "current_price": 386.99},
-    {"id": "mobo", "category": "Scheda madre", "name": "MSI B550 Gaming WiFi ATX AM4", "url": "INSERISCI_LINK_AMAZON_QUI", "current_price": 137.54},
-    {"id": "ram", "category": "RAM", "name": "Gigastone Game PRO 16GB Kit (2x8GB) DDR4", "url": "INSERISCI_LINK_AMAZON_QUI", "current_price": 111.00},
-    {"id": "ssd", "category": "SSD", "name": "Fikwot FX991 1TB NVMe PCIe 4.0", "url": "INSERISCI_LINK_AMAZON_QUI", "current_price": 149.39},
-    {"id": "psu", "category": "Alimentatore", "name": "MSI MAG A650BN 650W", "url": "INSERISCI_LINK_AMAZON_QUI", "current_price": 61.50},
-    {"id": "case", "category": "Case", "name": "MSI MAG Forge 120A Airflow", "url": "INSERISCI_LINK_AMAZON_QUI", "current_price": 67.99}
+    {
+      "id": "mobo",
+      "category": "Scheda Madre",
+      "name": "Scheda Madre",
+      "url": "https://www.amazon.it/dp/B096Y35W2C"
+    },
+    {
+      "id": "ram",
+      "category": "RAM",
+      "name": "Memoria RAM",
+      "url": "https://www.amazon.it/dp/B0CB2VNFDH"
+    },
+    {
+      "id": "cpu",
+      "category": "CPU",
+      "name": "Processore",
+      "url": "https://www.amazon.it/dp/B09VCHR1VH"
+    },
+    {
+      "id": "ssd",
+      "category": "SSD",
+      "name": "Memoria SSD",
+      "url": "https://www.amazon.it/dp/B0D4YN1K8G"
+    },
+    {
+      "id": "psu",
+      "category": "Alimentatore",
+      "name": "Alimentatore",
+      "url": "https://www.amazon.it/dp/B0991TZ399"
+    },
+    {
+      "id": "case",
+      "category": "Case",
+      "name": "Case PC",
+      "url": "https://www.amazon.it/dp/B0CFYMC6SJ"
+    },
+    {
+      "id": "gpu",
+      "category": "GPU",
+      "name": "Scheda Video",
+      "url": "https://www.amazon.it/dp/B0972C4MS9"
+    }
   ]
 }
