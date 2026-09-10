@@ -39,11 +39,10 @@ HEADERS = {
 }
 
 PRICE_SELECTORS = [
-    "span.a-price span.a-offscreen",
-    "#corePrice_feature_div span.a-offscreen",
     "#corePriceDisplay_desktop_feature_div span.a-offscreen",
-    "#priceblock_ourprice",
-    "#priceblock_dealprice",
+    "#corePrice_feature_div span.a-offscreen",
+    "#corePrice_desktop span.a-offscreen",
+    ".priceToPay span.a-offscreen"
 ]
 
 PRICE_REGEX = re.compile(r"(\d{1,3}(?:\.\d{3})*,\d{2})\s*€")
