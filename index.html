@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>PC Build 2026</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #121212; color: #ffffff; margin: 0; padding: 20px; padding-bottom: 40px; }
+        h1 { text-align: center; font-size: 24px; margin-bottom: 25px; color: #bb86fc; }
+        .card { background-color: #1e1e1e; border-radius: 12px; padding: 16px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; text-decoration: none; color: inherit; box-shadow: 0 4px 6px rgba(0,0,0,0.3); border: 1px solid #2d2d2d; }
+        .card:active { background-color: #2a2a2a; }
+        .info { flex-grow: 1; padding-right: 10px; }
+        .info h3 { margin: 0 0 4px 0; font-size: 16px; color: #e0e0e0; }
+        .info p { margin: 0; font-size: 13px; color: #888; }
+        .price { font-size: 18px; font-weight: bold; color: #03dac6; white-space: nowrap; }
+        .total-section { margin-top: 30px; background-color: #bb86fc; color: #121212; padding: 20px; border-radius: 16px; text-align: center; }
+        .total-label { font-size: 16px; font-weight: 500; opacity: 0.9; }
+        .total-price { font-size: 32px; font-weight: bold; margin: 5px 0; }
+        .ai-btn { background-color: #121212; color: #bb86fc; border: 2px solid #121212; padding: 14px 20px; width: 100%; border-radius: 10px; font-size: 16px; font-weight: bold; margin-top: 15px; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 8px; }
+        .ai-btn:active { background-color: #2a2a2a; }
+    </style>
+</head>
+<body>
+
+    <h1>La mia Build 2026</h1>
+    <div id="components-list">
+        <p style="text-align: center; color: #888;">Recupero prezzi da GitHub in corso...</p>
+    </div>
+    
+    <div class="total-section">
+        <div class="total-label">Costo Totale Attuale</div>
+        <div class="total-price" id="total-price">0.00 €</div>
+        <button class="ai-btn" onclick="askAI()">
+            ✨ Chiedi all'AI se aspettare
+        </button>
+    </div>
+
+    <script>
+        // Ho preso il tuo username (Mattio1203) direttamente dallo screenshot!
+        const dataUrl = "https://raw.githubusercontent.com/Mattio1203/pc-price-monitor/main/components.json";
+        let buildData = null;
+
+        async function loadData() {
+            try {
+                // Aggiungo un timestamp per evitare che il telefono usi la cache vecchia
+                const response = await fetch(dataUrl + '?t=' + new Date().getTime());
+                buildData = await response.json();
+                renderComponents();
+            } catch (error) {
+                document.getElementById('components-list').innerHTML = '<p style="text-align: center; color: #cf6679;">Errore di caricamento. Riprova più tardi.</p>';
+            }
+        }
+
+        function renderComponents() {
+            const list = document.getElementById('components-list');
+            list.innerHTML = '';
+            let total = 0;
+
+            buildData.components.forEach(comp => {
+                let priceText = "In attesa...";
+                if (comp.current_price) {
+                    priceText = comp.current_price.toFixed(2) + " €";
+                    total += comp.current_price;
+                }
+
+                const card = document.createElement('a');
+                card.className = 'card';
+                card.href = comp.url; // Tap apre direttamente Amazon
+                
+                card.innerHTML = `
+                    <div class="info">
+                        <h3>${comp.category}</h3>
+                        <p>${comp.name}</p>
+                    </div>
+                    <div class="price">${priceText}</div>
+                `;
+                list.appendChild(card);
+            });
+
+            document.getElementById('total-price').innerText = total.toFixed(2) + " €";
+        }
+
+        function askAI() {
+            if(!buildData) return;
+            let prompt = "Ciao Claude! Questa è la mia build PC e i prezzi di oggi su Amazon:\\n\\n";
+            buildData.components.forEach(c => {
+                let p = c.current_price ? c.current_price + "€" : "N/D";
+                prompt += `- ${c.category}: ${p}\\n`;
+            });
+            prompt += "\\nIl totale è di " + document.getElementById('total-price').innerText + ". Secondo te mi conviene comprare i componenti ora o aspettare? Ci sono alternative migliori per abbassare il prezzo?";
+            
+            // Copia il prompt negli appunti (se il browser lo permette) e avvisa l'utente
+            navigator.clipboard.writeText(prompt).then(() => {
+                alert("✨ Ho copiato i prezzi e la domanda negli appunti del tuo telefono!\n\nIncolla il testo qui nella chat con me per avere l'analisi.");
+            }).catch(() => {
+                alert("Copia questo testo e incollalo nell'AI:\n\n" + prompt);
+            });
+        }
+
+        // Avvia la funzione al caricamento della pagina
+        loadData();
+    </script>
+</body>
+</html>
