@@ -5,7 +5,8 @@
       "id": "mobo",
       "category": "Scheda Madre",
       "name": "Scheda Madre",
-      "url": "https://www.amazon.it/dp/B096Y35W2C"
+      "url": "https://www.amazon.it/dp/B096Y35W2C",
+      "current_price": 112.74
     },
     {
       "id": "ram",
@@ -29,19 +30,22 @@
       "id": "psu",
       "category": "Alimentatore",
       "name": "Alimentatore",
-      "url": "https://www.amazon.it/dp/B0991TZ399"
+      "url": "https://www.amazon.it/dp/B0991TZ399",
+      "current_price": 50.41
     },
     {
       "id": "case",
       "category": "Case",
       "name": "Case PC",
-      "url": "https://www.amazon.it/dp/B0CFYMC6SJ"
+      "url": "https://www.amazon.it/dp/B0CFYMC6SJ",
+      "current_price": 55.73
     },
     {
       "id": "gpu",
       "category": "GPU",
       "name": "Scheda Video",
-      "url": "https://www.amazon.it/dp/B0972C4MS9"
+      "url": "https://www.amazon.it/dp/B0972C4MS9",
+      "current_price": 317.2
     }
   ]
 }
