@@ -10,5 +10,17 @@
       "case": 55.73,
       "gpu": 317.2
     }
+  },
+  {
+    "timestamp": "2026-09-10T22:15:04+00:00",
+    "prices": {
+      "mobo": 112.74,
+      "ram": null,
+      "cpu": null,
+      "ssd": null,
+      "psu": 50.41,
+      "case": 55.73,
+      "gpu": 317.2
+    }
   }
 ]
