@@ -18,7 +18,8 @@
       "id": "cpu",
       "category": "CPU",
       "name": "Processore",
-      "url": "https://www.amazon.it/dp/B09VCHR1VH"
+      "url": "https://www.amazon.it/dp/B09VCHR1VH",
+      "current_price": 184.51
     },
     {
       "id": "ssd",
