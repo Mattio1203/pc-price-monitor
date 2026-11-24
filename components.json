@@ -12,7 +12,8 @@
       "id": "ram",
       "category": "RAM",
       "name": "Memoria RAM",
-      "url": "https://www.amazon.it/dp/B0CB2VNFDH"
+      "url": "https://www.amazon.it/dp/B0CB2VNFDH",
+      "current_price": 113.25
     },
     {
       "id": "cpu",
